@@ -3,57 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ComputeEase AI - Interactive Learning</title>
+    <title>ComputeEase AI - All Language Computer Tutor</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>ComputeEase AI</h1>
+        <div class="header-content">
+            <h1>ComputeEase AI</h1>
+            <p>Global AI-Powered Computer Learning Platform</p>
+        </div>
         <button id="apiKeyBtn" class="btn-secondary">Configure API Key</button>
     </header>
 
     <div id="apiModal" class="modal">
         <div class="modal-content">
-            <h2>Gemini API Key</h2>
-            <input type="password" id="apiKeyInput" placeholder="Enter API Key">
-            <button id="saveKeyBtn" class="btn-primary">Save</button>
-            <button id="closeModalBtn" class="btn-secondary">Cancel</button>
+            <h2>Configure Gemini API Key</h2>
+            <p>Enter your Google AI Studio API key. It is stored locally in your browser.</p>
+            <input type="password" id="apiKeyInput" placeholder="AIzaSy...">
+            <div class="modal-actions">
+                <button id="saveKeyBtn" class="btn-primary">Save Key</button>
+                <button id="closeModalBtn" class="btn-secondary">Cancel</button>
+            </div>
         </div>
     </div>
 
     <main class="container">
         <aside class="sidebar">
-            <h2>Modules</h2>
+            <h2>Computer Mastery Modules</h2>
             <ul id="topicList">
-                <li data-topic="Introduction to computer, Input, Process, Output">1. Introduction to Computer</li>
-                <li data-topic="Computer Hardware components monitor CPU keyboard mouse">2. Hardware Basics</li>
-                <li data-topic="Operating System desktop icons start menu">3. Operating System</li>
+                <li data-topic="Introduction to Computer: Input, Process, Output cycle">1. Introduction to Computers</li>
+                <li data-topic="Computer Hardware: Monitor, CPU, Keyboard, Mouse explanation">2. Hardware Components</li>
+                <li data-topic="Operating Systems: Windows, macOS, Linux, and Mobile OS">3. Operating Systems</li>
+                <li data-topic="Keyboard Shortcuts and Mouse Mastery for beginners">4. Input Device Mastery</li>
+                <li data-topic="File Management: Creating, saving, organizing files and folders">5. File Management</li>
+                <li data-topic="Internet Basics: Web browsers, searching, and URLs">6. Internet & Browsing</li>
+                <li data-topic="Cyber Security: Staying safe online, passwords, and scams">7. Cyber Security</li>
+                <li data-topic="Microsoft Word Basics: Creating and editing documents">8. MS Word Essentials</li>
+                <li data-topic="Microsoft Excel Basics: Rows, columns, and basic calculation">9. MS Excel Essentials</li>
+                <li data-topic="Email Basics: How email works and sending your first email">10. Email Communication</li>
+                <li data-topic="Basic Troubleshooting: What to do when computer freezes or has no internet">11. Basic Troubleshooting</li>
             </ul>
         </aside>
 
         <section class="tutor-area">
             <div class="tutor-header">
-                <h2 id="currentTopicTitle">Welcome</h2>
-                <div class="voice-controls">
+                <h2 id="currentTopicTitle">Select a Module to Begin</h2>
+                <div class="controls-group">
                     <select id="langSelect">
+                        <option value="en-IN">English (India)</option>
                         <option value="bn-IN">Bengali (বাংলা)</option>
-                        <option value="en-US">English (US)</option>
                         <option value="hi-IN">Hindi (हिंदी)</option>
+                        <option value="te-IN">Telugu (తెలుగు)</option>
+                        <option value="ta-IN">Tamil (தமிழ்)</option>
+                        <option value="mr-IN">Marathi (मराठी)</option>
+                        <option value="gu-IN">Gujarati (ગુજરાતી)</option>
+                        <option value="kn-IN">Kannada (ಕನ್ನಡ)</option>
+                        <option value="ml-IN">Malayalam (മലയാളം)</option>
+                        <option value="pa-IN">Punjabi (ਪੰਜਾਬੀ)</option>
+                        <option value="or-IN">Odia (ଓଡ଼ିଆ)</option>
+                        <option value="as-IN">Assamese (অসমীয়া)</option>
                     </select>
-                    <button id="speakBtn" class="btn-voice" disabled>Listen</button>
-                    <button id="stopSpeakBtn" class="btn-voice hidden">Stop</button>
+                    <button id="speakBtn" class="btn-voice" disabled>🔊 Listen</button>
+                    <button id="stopSpeakBtn" class="btn-voice hidden">⏹ Stop</button>
                 </div>
             </div>
 
             <div id="aiOutput" class="output-box">
-                <p>Select a module to start.</p>
+                <p class="placeholder-text">Select a module from the sidebar or type your question below. The AI will teach you in your selected language!</p>
             </div>
-            
-            <!-- মিডিয়া দেখানোর জায়গা -->
+
             <div id="mediaContainer" class="media-box hidden"></div>
 
             <div class="ask-box">
-                <input type="text" id="customQuestion" placeholder="Ask a question...">
+                <input type="text" id="customQuestion" placeholder="Ask anything about computers...">
                 <button id="askBtn" class="btn-primary">Ask AI</button>
             </div>
         </section>
