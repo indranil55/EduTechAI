@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComputeEase AI - Learn Computer Basics with AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>ComputeEase AI</h1>
+            <p>Interactive AI-Powered Computer Learning Platform</p>
+        </div>
+        <button id="apiKeyBtn" class="btn-secondary">Set Gemini API Key</button>
+    </header>
+
+    <!-- API Key Setup Modal -->
+    <div id="apiModal" class="modal">
+        <div class="modal-content">
+            <h2>Configure Gemini API Key</h2>
+            <p>Enter your Google Gemini API key to enable live AI explanations. Your key is saved locally in your browser.</p>
+            <input type="password" id="apiKeyInput" placeholder="AIzaSy...">
+            <div class="modal-actions">
+                <button id="saveKeyBtn" class="btn-primary">Save Key</button>
+                <button id="closeModalBtn" class="btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- Left Sidebar: Basic Computer Topics -->
+        <aside class="sidebar">
+            <h2>Basic Computer Modules</h2>
+            <p class="hint">Click any topic to get an instant AI lesson</p>
+            <ul id="topicList">
+                <li data-topic="What is a Computer? Explain Input, Process, and Output in simple terms for a beginner.">1. Introduction to Computer</li>
+                <li data-topic="Explain Computer Hardware parts like Monitor, CPU, Keyboard, and Mouse for a complete beginner.">2. Hardware Basics</li>
+                <li data-topic="What is an Operating System (Windows/Android) and how to use Desktop, Icons, and Start Menu?">3. Operating System & Desktop</li>
+                <li data-topic="How to use a Mouse (Left click, Right click, Double click, Scroll) and Keyboard shortcuts (Ctrl+C, Ctrl+V, Ctrl+S)?">4. Mouse & Keyboard Mastery</li>
+                <li data-topic="How to create, rename, copy, move, and delete Files and Folders safely?">5. File & Folder Management</li>
+                <li data-topic="What is MS Word and how to type, format text, and save a document?">6. MS Word Basics</li>
+                <li data-topic="What is MS Excel and how do rows, columns, and basic formulas like SUM work?">7. MS Excel Basics</li>
+                <li data-topic="How to use Web Browsers, Google Search, and stay safe from online scams and viruses?">8. Internet & Cyber Safety</li>
+                <li data-topic="How to create an Email ID and send a professional email with an attachment?">9. Email Communication</li>
+            </ul>
+        </aside>
+
+        <!-- Right Section: AI Tutor & Explanation Area -->
+        <section class="tutor-area">
+            <div class="tutor-header">
+                <h2 id="currentTopicTitle">Welcome to ComputeEase AI</h2>
+                <div class="voice-controls">
+                    <select id="langSelect">
+                        <option value="bn-IN">Language: Bengali (বাংলা)</option>
+                        <option value="en-US">Language: English</option>
+                        <option value="hi-IN">Language: Hindi (हिंदी)</option>
+                    </select>
+                    <button id="speakBtn" class="btn-voice" disabled>🔊 Listen</button>
+                    <button id="stopSpeakBtn" class="btn-voice hidden">⏹ Stop</button>
+                </div>
+            </div>
+
+            <div id="aiOutput" class="output-box">
+                <p class="placeholder-text">Select a module from the left menu or ask any computer question below. AI will automatically explain it step-by-step!</p>
+            </div>
+
+            <!-- Custom Question Box -->
+            <div class="ask-box">
+                <input type="text" id="customQuestion" placeholder="Ask anything about computers (e.g., How to take a screenshot?)...">
+                <button id="askBtn" class="btn-primary">Ask AI</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
